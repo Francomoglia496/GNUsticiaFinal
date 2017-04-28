@@ -36,9 +36,6 @@ public class Main {
             System.out.println(a);
         }
 
-
-
-
         String fecha = "2017-04-21";
 
         for (String aux : resistencia.getNombresCaratulas()){
