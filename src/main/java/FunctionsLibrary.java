@@ -39,7 +39,8 @@ public class FunctionsLibrary {
 
                     //String caratula = localidad.getNombresCaratulas()[i];
 
-                    File archivo = new File("./GNUsticia/" + localidad.getName() + "/" + localidad.getNombresCaratulas()[i] + fecha +".txt");
+                    File archivo = new File("./GNUsticia/" + localidad.getName() + "/"
+                            + localidad.getNombresCaratulas()[i] + fecha +".txt");
 
                     if (!archivo.exists()) {
 
@@ -253,7 +254,7 @@ public class FunctionsLibrary {
 
     }
 
-    public static void muestraContenido(String urlArchivo, String[] exptes) throws FileNotFoundException, IOException {
+    public static void muestraContenido(String urlArchivo, String[] exptes) throws IOException {
 
         String cadena;
         FileReader f = new FileReader(urlArchivo);
@@ -266,7 +267,6 @@ public class FunctionsLibrary {
             a = a + cadena + "\n";
 
         }
-
         b.close();
 
         String[] array = a.split("----------------------------------------------------------------");
@@ -274,20 +274,22 @@ public class FunctionsLibrary {
         String textoSalidaYaFiltrado = "";
 
 
+//>>>>>>> 781ce44c418aae29ff93f13cb69497562d3ae163
+
         for (String pos: array) {
 
             for (String pos2: exptes) {
 
                 if (pos.contains(pos2)){
 
-                    textoSalidaYaFiltrado = textoSalidaYaFiltrado + pos;
+                    System.out.println(pos);
                 }
 
             }
 
         }
 
-        System.out.println(textoSalidaYaFiltrado);
+        //System.out.println(textoSalidaYaFiltrado);
     }
 
     /*
