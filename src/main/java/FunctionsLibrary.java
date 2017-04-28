@@ -44,8 +44,7 @@ public class FunctionsLibrary {
 
                     if (!archivo.exists()) {
 
-                        fos = new FileOutputStream("./GNUsticia/" + localidad.getName() + "/" +
-                                localidad.getNombresCaratulas()[i] + fecha + ".txt");
+                        fos = new FileOutputStream("./GNUsticia/" + localidad.getName() + "/" + localidad.getNombresCaratulas()[i] + fecha + ".txt");
 
                         //if (!fileExist(localidad, caratula, fecha)){
 
@@ -236,11 +235,6 @@ public class FunctionsLibrary {
             e.printStackTrace();
         }
 
-
-
-
-
-
     }
 
     public static void muestraContenido(String urlArchivo, String[] exptes) throws IOException {
@@ -262,8 +256,8 @@ public class FunctionsLibrary {
 
         String textoSalidaYaFiltrado = "";
 
-        //System.out.println(exptes.length);
 
+//>>>>>>> 781ce44c418aae29ff93f13cb69497562d3ae163
 
         for (String pos: array) {
 

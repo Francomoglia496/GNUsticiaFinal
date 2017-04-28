@@ -18,6 +18,10 @@ public class Main {
         Localidad charata = Localidad.charata();*/
 
         //FunctionsLibrary.generarCarpetas();
+//<<<<<<< HEAD
+
+//=======
+//>>>>>>> 781ce44c418aae29ff93f13cb69497562d3ae163
         //FunctionsLibrary.descargarArchivo(resistencia);
 
         //FunctionsLibrary.connectionDB();
@@ -31,6 +35,8 @@ public class Main {
         for (String a : exptesList){
             System.out.println(a);
         }
+
+
 
 
         String fecha = "2017-04-21";
