@@ -137,23 +137,6 @@ public class FunctionsLibrary {
 
     }
 
-    public static boolean fileExist(Localidad localidad,String caratula, String fecha) {
-
-        boolean result = false;
-
-        String nombreArchivo = caratula + fecha + ".txt";
-
-        File archivo = new File("./GNUsticia/" + localidad.getName() + "/" + nombreArchivo);
-
-        if (archivo.length() != 0){
-            result = true;
-        }
-
-        System.out.println(archivo.length());
-
-        return result;
-    }
-
     public  static String[] selectFromDB(){
 
         ArrayList<String> exptes = new ArrayList<String>();
@@ -291,12 +274,6 @@ public class FunctionsLibrary {
 
         //System.out.println(textoSalidaYaFiltrado);
     }
-
-    /*
-    public static void main(String[] args) throws IOException {
-        muestraContenido("./GNUsticia/Cam_Civ_Sala_I_2017-04-21.txt");
-    }
-    */
 
     public static void crearArchivoFinal(Localidad localidad, String fecha) throws FileNotFoundException {
 
