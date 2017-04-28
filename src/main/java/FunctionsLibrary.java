@@ -43,8 +43,7 @@ public class FunctionsLibrary {
 
                     if (!archivo.exists()) {
 
-                        fos = new FileOutputStream("./GNUsticia/" + localidad.getName() + "/" +
-                                localidad.getNombresCaratulas()[i] + fecha + ".txt");
+                        fos = new FileOutputStream("./GNUsticia/" + localidad.getName() + "/" + localidad.getNombresCaratulas()[i] + fecha + ".txt");
 
                         //if (!fileExist(localidad, caratula, fecha)){
 
@@ -252,11 +251,6 @@ public class FunctionsLibrary {
             e.printStackTrace();
         }
 
-
-
-
-
-
     }
 
     public static void muestraContenido(String urlArchivo, String[] exptes) throws FileNotFoundException, IOException {
@@ -278,6 +272,7 @@ public class FunctionsLibrary {
         String[] array = a.split("----------------------------------------------------------------");
 
         String textoSalidaYaFiltrado = "";
+
 
         for (String pos: array) {
 
