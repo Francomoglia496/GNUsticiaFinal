@@ -6,5 +6,5 @@ package model;
 public class ConectarDB {
 
     public int id;
-    
+
 }

@@ -5,13 +5,17 @@ import java.net.SocketException;
 import java.sql.*;
 import java.sql.Connection;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
+
 
 /**
  * Created by franco on 18/04/17.
  */
 public class FunctionsLibrary {
+
+
+    public FunctionsLibrary() {
+    }
 
     public static void descargarArchivo(Localidad localidad){
 
@@ -237,7 +241,7 @@ public class FunctionsLibrary {
 
     }
 
-    public static void muestraContenido(String urlArchivo, String[] exptes) throws IOException {
+    public static Collection muestraContenido(String urlArchivo, String[] exptes) throws IOException {
 
         String cadena;
         FileReader f = new FileReader(urlArchivo);
@@ -258,6 +262,7 @@ public class FunctionsLibrary {
 
 
 //>>>>>>> 781ce44c418aae29ff93f13cb69497562d3ae163
+        ArrayList<String> lista = new ArrayList<String>();
 
         for (String pos: array) {
 
@@ -265,7 +270,9 @@ public class FunctionsLibrary {
 
                 if (pos.contains(pos2)){
 
-                    System.out.println(pos);
+                    //System.out.println(pos);
+                    lista.add(pos);
+
                 }
 
             }
@@ -273,6 +280,8 @@ public class FunctionsLibrary {
         }
 
         //System.out.println(textoSalidaYaFiltrado);
+        return lista;
+
     }
 
     public static void crearArchivoFinal(Localidad localidad, String fecha) throws FileNotFoundException {
@@ -288,6 +297,50 @@ public class FunctionsLibrary {
 
         }
 
+    }
+
+    public static Collection ListaBuscados() throws IOException {
+
+        final ArrayList<String> listaexp = new ArrayList<String>();
+
+        Localidad resistencia = Localidad.resistencia();
+
+        String[] exptesList = FunctionsLibrary.selectFromDB();
+
+        for (String a : exptesList){
+            System.out.println(a);
+        }
+
+        String fecha = "2017-04-21";
+
+        for (String aux : resistencia.getNombresCaratulas()){
+
+            String str = "./GNUsticia/" + resistencia.getName() + "/" + aux + fecha + ".txt";
+            File archivo = new File(str);
+            String urlArch = resistencia.getNombresCaratulas() + fecha + ".txt";
+
+            if (archivo.exists()){
+
+                listaexp.add(muestraContenido(str, exptesList).toString());
+
+                //muestraContenido(str, exptesList)
+            }
+
+        }
+
+        return listaexp;
+    }
+
+    /*
+    public static Collection<Usuario> getListaUsuario(){
+
+        if (!listusuarios.values().isEmpty()){
+            return listusuarios.values();
+        }else throw new CustomExceptionUsuario("Coleccion vacia");
 
     }
+    */
+
+
+
 }

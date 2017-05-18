@@ -1,3 +1,6 @@
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -8,11 +11,14 @@ import java.util.StringTokenizer;
 /**
  * Created by franco on 18/04/17.
  */
+
+@SpringBootApplication
 public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        Localidad resistencia = Localidad.resistencia();
+        //Localidad resistencia = Localidad.resistencia();
+
         /*Localidad saenzP = Localidad.saenzP();
         Localidad villaAngela = Localidad.villaAngela();
         Localidad charata = Localidad.charata();*/
@@ -30,6 +36,8 @@ public class Main {
 
         //FunctionsLibrary.selectFromDB();
 
+
+        /*
         String[] exptesList = FunctionsLibrary.selectFromDB();
 
         for (String a : exptesList){
@@ -52,8 +60,10 @@ public class Main {
 
         }
 
+        */
 
-
+        SpringApplication.run(Main.class, args);
+        System.out.println( "Hello World!" );
 
 
     }
