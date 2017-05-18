@@ -1,12 +1,9 @@
+package gnu;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.sql.*;
-import java.util.ArrayList;
-import java.util.StringTokenizer;
 
 /**
  * Created by franco on 18/04/17.
@@ -17,28 +14,28 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        //Localidad resistencia = Localidad.resistencia();
+        //gnu.Localidad resistencia = gnu.Localidad.resistencia();
 
-        /*Localidad saenzP = Localidad.saenzP();
-        Localidad villaAngela = Localidad.villaAngela();
-        Localidad charata = Localidad.charata();*/
+        /*gnu.Localidad saenzP = gnu.Localidad.saenzP();
+        gnu.Localidad villaAngela = gnu.Localidad.villaAngela();
+        gnu.Localidad charata = gnu.Localidad.charata();*/
 
-        //FunctionsLibrary.generarCarpetas();
+        //gnu.FunctionsLibrary.generarCarpetas();
 //<<<<<<< HEAD
 
 //=======
 //>>>>>>> 781ce44c418aae29ff93f13cb69497562d3ae163
-        //FunctionsLibrary.descargarArchivo(resistencia);
+        //gnu.FunctionsLibrary.descargarArchivo(resistencia);
 
-        //FunctionsLibrary.connectionDB();
+        //gnu.FunctionsLibrary.connectionDB();
 
-        //FunctionsLibrary.insertIntoDB(array);
+        //gnu.FunctionsLibrary.insertIntoDB(array);
 
-        //FunctionsLibrary.selectFromDB();
+        //gnu.FunctionsLibrary.selectFromDB();
 
 
         /*
-        String[] exptesList = FunctionsLibrary.selectFromDB();
+        String[] exptesList = gnu.FunctionsLibrary.selectFromDB();
 
         for (String a : exptesList){
             System.out.println(a);
@@ -54,7 +51,7 @@ public class Main {
 
             if (archivo.exists()){
 
-                FunctionsLibrary.muestraContenido(str, exptesList);
+                gnu.FunctionsLibrary.muestraContenido(str, exptesList);
 
             }
 

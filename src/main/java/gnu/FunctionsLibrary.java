@@ -1,3 +1,5 @@
+package gnu;
+
 import org.apache.commons.net.ftp.FTPClient;
 
 import java.io.*;
@@ -263,6 +265,7 @@ public class FunctionsLibrary {
 
 //>>>>>>> 781ce44c418aae29ff93f13cb69497562d3ae163
         ArrayList<String> lista = new ArrayList<String>();
+        int cont = 0;
 
         for (String pos: array) {
 
@@ -271,7 +274,10 @@ public class FunctionsLibrary {
                 if (pos.contains(pos2)){
 
                     //System.out.println(pos);
+                    //System.out.println(cont + 1);
+                    if (pos != "[]")
                     lista.add(pos);
+
 
                 }
 
@@ -301,15 +307,17 @@ public class FunctionsLibrary {
 
     public static Collection ListaBuscados() throws IOException {
 
-        final ArrayList<String> listaexp = new ArrayList<String>();
+        ArrayList<String> listaexp = new ArrayList<String>();
 
         Localidad resistencia = Localidad.resistencia();
 
         String[] exptesList = FunctionsLibrary.selectFromDB();
 
+
         for (String a : exptesList){
             System.out.println(a);
         }
+
 
         String fecha = "2017-04-21";
 
@@ -321,13 +329,14 @@ public class FunctionsLibrary {
 
             if (archivo.exists()){
 
-                listaexp.add(muestraContenido(str, exptesList).toString());
+                listaexp.addAll(muestraContenido(str, exptesList));
 
                 //muestraContenido(str, exptesList)
             }
 
         }
 
+        //System.out.println(listaexp);
         return listaexp;
     }
 

@@ -1,3 +1,5 @@
+package gnu;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,6 +16,7 @@ public class LocalidadController {
 
     @RequestMapping(value = "/listaexp", method = RequestMethod.GET)
     public Collection<String> getUsuario() throws IOException {
+
 
         return FunctionsLibrary.ListaBuscados();
     }
