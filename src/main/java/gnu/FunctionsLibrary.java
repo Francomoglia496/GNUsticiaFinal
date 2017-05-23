@@ -19,7 +19,9 @@ public class FunctionsLibrary {
     public FunctionsLibrary() {
     }
 
+    // Metodo para Descargar los Archivos para la Busqueda de los Expedientes.
     public static void descargarArchivo(Localidad localidad){
+
 
         // get an ftpClient object
         FTPClient client1 = new FTPClient();
@@ -40,6 +42,9 @@ public class FunctionsLibrary {
                 System.out.println("Ingrese la fecha con el siguiente formato: aaaa-mm-dd");
                 String fecha = sc.nextLine();
 
+                //Recorre un Arrglo de String que tiene el objeto localidad que se le pasa como
+                //parametro al metodo.
+
                 for (int i = 0; i < localidad.getLinkCaratulas().length; i++) {
 
 
@@ -48,6 +53,8 @@ public class FunctionsLibrary {
                     File archivo = new File("./GNUsticia/" + localidad.getName() + "/"
                             + localidad.getNombresCaratulas()[i] + fecha +".txt");
 
+                    //Consulta se Existe un archivo con el nombre que se le pasa, si lo encuentra
+                    //lo descarga sino emite un msj de error
                     if (!archivo.exists()) {
 
                         fos = new FileOutputStream("./GNUsticia/" + localidad.getName() + "/" + localidad.getNombresCaratulas()[i] + fecha + ".txt");
@@ -104,6 +111,8 @@ public class FunctionsLibrary {
         }
     }
 
+    //metodo para la creacion de carpeta en donde se guardaran todos los archivos que son descargados,
+    //los nombres de las carpetas son llamadas de acuerdo a la localidad.
     public static void generarCarpetas(){
 
         File folder = new File("./GNUsticia");
@@ -143,6 +152,8 @@ public class FunctionsLibrary {
 
     }
 
+    //metodo para obtener la lista de expedientes de los que se requiere informacion.
+    //los mismos se encuentran en una base de datos
     public  static String[] selectFromDB(){
 
         ArrayList<String> exptes = new ArrayList<String>();
@@ -185,6 +196,7 @@ public class FunctionsLibrary {
         return new String[exptes.size()];
     }
 
+    //metodo para la carga de expedientes a la base de datos.
     public static void insertIntoDB(String[] expedientes){
 
         try {
@@ -216,6 +228,7 @@ public class FunctionsLibrary {
         }
     }
 
+    //metodo para la actualizacion de los num de exp que estan en la base de datos
     public static void updateDB(){
 
         try {
@@ -243,6 +256,8 @@ public class FunctionsLibrary {
 
     }
 
+    //metodo que realiza la busqueda de los num de expedientes que se encuentran en la base de datos
+    //los compara con el contenido de los archivos que fueron descargados.
     public static Collection muestraContenido(String urlArchivo, String[] exptes) throws IOException {
 
         String cadena;
