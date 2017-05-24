@@ -18,7 +18,7 @@ public class LocalidadController {
     public Collection<String> getUsuario() throws IOException {
 
 
-        return FunctionsLibrary.ListaBuscados();
+        return Expediente.ListaBuscados();
     }
 
 }
