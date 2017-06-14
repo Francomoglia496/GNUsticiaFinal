@@ -20,11 +20,16 @@ public class Main {
         gnu.service.Localidad villaAngela = gnu.service.Localidad.villaAngela();
         gnu.service.Localidad charata = gnu.service.Localidad.charata();*/
 
+//<<<<<<< HEAD
         //gnu.service.Expediente.generarCarpetas();
+//=======
+        //gnu.Expediente.generarCarpetas();
+//>>>>>>> 799f745a2a2e690cc2cb76e3fa17aba8c005598b
 //<<<<<<< HEAD
 
 //=======
 //>>>>>>> 781ce44c418aae29ff93f13cb69497562d3ae163
+//<<<<<<< HEAD
         //gnu.service.Expediente.descargarArchivo(resistencia);
 
         //gnu.service.Expediente.connectionDB();
@@ -36,6 +41,19 @@ public class Main {
 
         /*
         String[] exptesList = gnu.service.Expediente.selectFromDB();
+=======
+        //gnu.Expediente.descargarArchivo(resistencia);
+
+        //gnu.Expediente.connectionDB();
+
+        //gnu.Expediente.insertIntoDB(array);
+
+        //gnu.Expediente.selectFromDB();
+
+
+        /*
+        String[] exptesList = gnu.Expediente.selectFromDB();
+>>>>>>> 799f745a2a2e690cc2cb76e3fa17aba8c005598b
 
         for (String a : exptesList){
             System.out.println(a);
@@ -51,7 +69,11 @@ public class Main {
 
             if (archivo.exists()){
 
+<<<<<<< HEAD
                 gnu.service.Expediente.muestraContenido(str, exptesList);
+=======
+                gnu.Expediente.muestraContenido(str, exptesList);
+>>>>>>> 799f745a2a2e690cc2cb76e3fa17aba8c005598b
 
             }
 

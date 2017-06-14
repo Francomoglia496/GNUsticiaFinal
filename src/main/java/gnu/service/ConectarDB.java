@@ -8,6 +8,9 @@ import java.util.ArrayList;
  */
 public class ConectarDB {
 
+    /*
+    * metodo para obtener la lista de expedientes de los que se requiere informacion.
+    los mismos se encuentran en una base de datos */
     public  static String[] listarExpedientesPropios(){
 
         ArrayList<String> exptes = new ArrayList<String>();
@@ -50,6 +53,7 @@ public class ConectarDB {
         return new String[exptes.size()];
     }
 
+    //metodo para la carga de expedientes a la base de datos.
     public static void insertIntoDB(String[] expedientes){
 
         try {
@@ -81,6 +85,7 @@ public class ConectarDB {
         }
     }
 
+    //metodo para la actualizacion de los num de exp que estan en la base de datos
     public static void updateDB(){
 
         try {

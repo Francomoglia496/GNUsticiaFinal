@@ -215,8 +215,8 @@ public class Expediente {
 
         Localidad resistencia = Localidad.resistencia();
 
-        ConectarDB conectarDB = new ConectarDB();
-        String[] exptesList = conectarDB.listarExpedientesPropios(); //Expediente.selectFromDB();
+        //ConectarDB conectarDB = new ConectarDB();
+        String[] exptesList = ConectarDB.listarExpedientesPropios(); //Expediente.selectFromDB();
 
         for (String a : exptesList){
             System.out.println(a);
@@ -228,7 +228,7 @@ public class Expediente {
 
             String str = "./GNUsticia/" + resistencia.getName() + "/" + aux + fecha + ".txt";
             File archivo = new File(str);
-            String urlArch = resistencia.getNombresCaratulas() + fecha + ".txt";
+            //String urlArch = resistencia.getNombresCaratulas() + fecha + ".txt";
 
             if (archivo.exists()){
 
