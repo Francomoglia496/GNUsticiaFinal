@@ -1,4 +1,4 @@
-package gnu;
+package gnu.service;
 
 import java.util.Arrays;
 
@@ -61,7 +61,7 @@ public class Localidad {
 
     @Override
     public String toString() {
-        return "gnu.Localidad{" +
+        return "gnu.service.Localidad{" +
                 "caratulas=" + Arrays.toString(caratulas) +
                 ", proveidos=" + Arrays.toString(proveidos) +
                 ", nombresCaratulas=" + Arrays.toString(nombresCaratulas) +

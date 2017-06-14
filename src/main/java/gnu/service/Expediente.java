@@ -1,5 +1,7 @@
-package gnu;
+package gnu.service;
 
+import gnu.service.ConectarDB;
+import gnu.service.Localidad;
 import org.apache.commons.net.ftp.FTPClient;
 
 import java.io.*;
@@ -13,10 +15,10 @@ import java.util.*;
 /**
  * Created by franco on 18/04/17.
  */
-public class FunctionsLibrary {
+public class Expediente {
 
 
-    public FunctionsLibrary() {
+    public Expediente() {
     }
 
     public static void descargarArchivo(Localidad localidad){
@@ -143,105 +145,7 @@ public class FunctionsLibrary {
 
     }
 
-    public  static String[] selectFromDB(){
 
-        ArrayList<String> exptes = new ArrayList<String>();
-
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-
-            Connection conexion = DriverManager.getConnection("jdbc:mysql://tugal.com.ar:3306/tugal_gnu",
-                    "tugal_franco","franco");
-
-            if (conexion != null){
-                System.out.println("conexion establecida");
-            }else System.out.println("conexion fallida");
-
-            // Preparamos la consulta
-            Statement s = conexion.createStatement();
-            ResultSet rs = s.executeQuery("SELECT * FROM gnu");
-
-            int i = 0;
-            while (rs.next()){
-                exptes.add(rs.getString(2));
-            }
-
-            String[] exptesSalida = new String[exptes.size()];
-
-            for (int j = 0; j < exptes.size(); j++) {
-
-                exptesSalida[j] = exptes.get(j);
-
-            }
-
-            conexion.close();
-            return exptesSalida;
-
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return new String[exptes.size()];
-    }
-
-    public static void insertIntoDB(String[] expedientes){
-
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-
-            Connection conexion = DriverManager.getConnection("jdbc:mysql://tugal.com.ar:3306/tugal_gnu",
-                    "tugal_franco","franco");
-
-            if (conexion != null){
-                System.out.println("conexion establecida");
-            }else System.out.println("conexion fallida");
-
-
-            for (String expediente : expedientes){
-
-                // Preparamos la consulta
-                Statement s = conexion.createStatement();
-                s.executeUpdate("INSERT INTO gnu (descripcion) VALUES ('" + expediente + "')");
-
-
-            }
-
-            conexion.close();
-
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static void updateDB(){
-
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-
-            Connection conexion = DriverManager.getConnection("jdbc:mysql://tugal.com.ar:3306/tugal_gnu",
-                    "tugal_franco","franco");
-
-            if (conexion != null){
-                System.out.println("conexion establecida");
-            }else System.out.println("conexion fallida");
-
-
-            // Preparamos la consulta
-            PreparedStatement s = conexion.prepareStatement("UPDATE gnu SET ");
-
-
-            conexion.close();
-
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-    }
 
     public static Collection muestraContenido(String urlArchivo, String[] exptes) throws IOException {
 
@@ -305,21 +209,20 @@ public class FunctionsLibrary {
 
     }
 
-    public static Collection ListaBuscados() throws IOException {
+    public static Collection ListaBuscados(String fecha) throws IOException {
 
         ArrayList<String> listaexp = new ArrayList<String>();
 
         Localidad resistencia = Localidad.resistencia();
 
-        String[] exptesList = FunctionsLibrary.selectFromDB();
-
+        ConectarDB conectarDB = new ConectarDB();
+        String[] exptesList = conectarDB.listarExpedientesPropios(); //Expediente.selectFromDB();
 
         for (String a : exptesList){
             System.out.println(a);
         }
 
-
-        String fecha = "2017-04-21";
+        //String fecha = "2017-04-21";
 
         for (String aux : resistencia.getNombresCaratulas()){
 
@@ -330,7 +233,6 @@ public class FunctionsLibrary {
             if (archivo.exists()){
 
                 listaexp.addAll(muestraContenido(str, exptesList));
-
                 //muestraContenido(str, exptesList)
             }
 

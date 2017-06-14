@@ -14,28 +14,28 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        //gnu.Localidad resistencia = gnu.Localidad.resistencia();
+        //gnu.service.Localidad resistencia = gnu.service.Localidad.resistencia();
 
-        /*gnu.Localidad saenzP = gnu.Localidad.saenzP();
-        gnu.Localidad villaAngela = gnu.Localidad.villaAngela();
-        gnu.Localidad charata = gnu.Localidad.charata();*/
+        /*gnu.service.Localidad saenzP = gnu.service.Localidad.saenzP();
+        gnu.service.Localidad villaAngela = gnu.service.Localidad.villaAngela();
+        gnu.service.Localidad charata = gnu.service.Localidad.charata();*/
 
-        //gnu.FunctionsLibrary.generarCarpetas();
+        //gnu.service.Expediente.generarCarpetas();
 //<<<<<<< HEAD
 
 //=======
 //>>>>>>> 781ce44c418aae29ff93f13cb69497562d3ae163
-        //gnu.FunctionsLibrary.descargarArchivo(resistencia);
+        //gnu.service.Expediente.descargarArchivo(resistencia);
 
-        //gnu.FunctionsLibrary.connectionDB();
+        //gnu.service.Expediente.connectionDB();
 
-        //gnu.FunctionsLibrary.insertIntoDB(array);
+        //gnu.service.Expediente.insertIntoDB(array);
 
-        //gnu.FunctionsLibrary.selectFromDB();
+        //gnu.service.Expediente.selectFromDB();
 
 
         /*
-        String[] exptesList = gnu.FunctionsLibrary.selectFromDB();
+        String[] exptesList = gnu.service.Expediente.selectFromDB();
 
         for (String a : exptesList){
             System.out.println(a);
@@ -51,7 +51,7 @@ public class Main {
 
             if (archivo.exists()){
 
-                gnu.FunctionsLibrary.muestraContenido(str, exptesList);
+                gnu.service.Expediente.muestraContenido(str, exptesList);
 
             }
 
